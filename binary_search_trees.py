@@ -129,4 +129,16 @@ class Tree:
             return
 
         self.root = self.delete_helper(self.root, key)
+
+    # Working height finder (recursive) (by Ada Developer's Academy)
+    def height_helper(self, current):
+        # base case – node is None
+        if not current:
+            return 0
+
+        # recursive case – at least one subtree to search
+        return 1 + max(self.height_helper(current.right), self.height_helper(current.left))
+    
+    def height(self):
+        return self.height_helper(self.root)
         
